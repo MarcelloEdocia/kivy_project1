@@ -1,0 +1,192 @@
+Screen:
+	name: "dashboard"
+	MDFloatLayout:
+		md_bg_color: 1,1,1,1
+		MDToolbar:
+			title: ""
+			md_bg_color: rgba(202, 0, 13, 255)
+			left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]] #open == toggle
+			top: root.top
+
+		MDFloatLayout:
+			size_hint: 1, .34
+			top: root.top
+			pos_hint: {"center_y":.75}
+			md_bg_color: 1,1,1,1
+
+		MDLabel:
+			id: full_name
+			text: ""
+			font_size: "16sp"
+			font_name: "Roboto"
+			halign: "center"
+			pos_hint: {"center_x":.48, "center_y": .89}
+			bold: True
+
+		Image:
+			id: user_image
+			source: ""
+			size_hint_y: .11
+			pos_hint: {"center_x":.5, "center_y":.81}
+			canvas.before:
+				Color:
+					rgba: rgba(1,1,1,1)
+				Ellipse:
+					size: 81, 81
+					pos: self.center_x - 43, self.center_y - 42
+
+		MDLabel:
+			id: bio
+			text: ""
+			font_name: "Roboto"
+			font_size: "12sp"
+			halign: "center"
+			pos_hint: {"center_x":.477, "center_y":.72}
+			bold: True
+
+
+		MDLabel:
+			text: "Menus: "
+			font_name: "Roboto"
+			font_size: "22sp"
+			halign: "center"
+			pos_hint: {"center_x":.12, "center_y":.60}
+			bold: True
+
+		MDCard:
+			size_hint: .9, .14
+			pos_hint: {"center_x":.5, "center_y":.46}
+			elevation: 15
+			ripple_behavior: True
+			on_release: app.to_dessert()
+
+
+			MDBoxLayout:
+				id: box_top
+				spacing: "20dp"
+
+				FitImage:
+					source: "assets/img/dessert.jfif"
+					size_hint: .4, None
+					height: text_box.height
+				MDBoxLayout:
+					id: text_box
+					orientation: "vertical"
+					spacing: "10dp"
+					padding: 0, "10dp", "10dp", "10dp"
+
+					MDLabel:
+						text: "Desserts"
+						font_style: "H5"
+						bold: True
+					MDLabel:
+						text: "Sweets and Cakes"
+						font_style: "H5"
+						font_size: "14sp"
+						bold: True
+
+		MDCard:
+			size_hint: .9, .14
+			pos_hint: {"center_x":.5, "center_y":.30}
+			elevation: 15
+			ripple_behavior: True
+			on_release: app.to_food()
+
+			MDBoxLayout:
+				id: box_top
+				spacing: "20dp"
+
+				FitImage:
+					source: "assets/img/food.jpeg"
+					size_hint: .4, None
+					height: text_box.height
+				MDBoxLayout:
+					id: text_box
+					orientation: "vertical"
+					spacing: "10dp"
+					padding: 0, "10dp", "10dp", "10dp"
+
+					MDLabel:
+						text: "Food"
+						font_style: "H5"
+						bold: True
+					MDLabel:
+						text: "All sorts of cuisines"
+						font_style: "H5"
+						font_size: "14sp"
+						bold: True
+
+		MDCard:
+			size_hint: .9, .14
+			pos_hint: {"center_x":.5, "center_y":.14}
+			elevation: 15
+			ripple_behavior: True
+			on_release: app.to_drink()
+
+			MDBoxLayout:
+				id: box_top
+				spacing: "20dp"
+
+				FitImage:
+					source: "assets/img/beverages.jpg"
+					size_hint: .4, None
+					height: text_box.height
+				MDBoxLayout:
+					id: text_box
+					orientation: "vertical"
+					spacing: "10dp"
+					padding: 0, "10dp", "10dp", "10dp"
+
+					MDLabel:
+						text: "Beverages"
+						font_style: "H5"
+						bold: True
+					MDLabel:
+						text: "All sorts of drinks"
+						font_style: "H5"
+						font_size: "14sp"
+						bold: True
+
+	MDNavigationDrawer:
+		id: nav_drawer
+
+		MDFloatLayout:
+			Image:
+				source: "assets/img/logo.png"
+				size_hint: .2 , .2
+				pos_hint: {"center_x":.2, "center_y":.93}
+
+			MDRectangleFlatIconButton:
+				icon: "logout-variant"
+				text: "Log out"
+				theme_text_color: "Custom"
+				line_color: 1,1,1,1
+				icon_color: rgba(202, 0, 13, 255)
+				text_color: rgba(202, 0, 13, 255)
+				pos_hint: {"center_x":.25, "center_y":.8}
+				on_release: app.sign_out()
+
+			MDRectangleFlatIconButton:
+				icon: "cart-plus"
+				text: "Purchase cart"
+				theme_text_color: "Custom"
+				line_color: 1,1,1,1
+				icon_color: rgba(202, 0, 13, 255)
+				text_color: rgba(202, 0, 13, 255)
+				pos_hint: {"center_x":.30, "center_y":.73}
+
+			MDRectangleFlatIconButton:
+			    icon: "cog-sync-outline"
+			    text: "Settings"
+			    theme_text_color: "Custom"
+			    line_color: 1,1,1,1
+			    icon_color: rgba(202, 0, 13, 255)
+			    text_color: rgba(202, 0, 13, 255)
+			    pos_hint: {"center_x": .25, "center_y": .65}
+
+
+
+
+
+
+

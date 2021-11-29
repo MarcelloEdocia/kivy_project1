@@ -1,0 +1,189 @@
+#:import from_hex kivy.utils.get_color_from_hex
+
+Screen:
+	name: "signup"
+	MDFloatLayout:
+		md_bg_color: 1,1,1,1
+
+
+		MDLabel:
+			text: "Registration"
+			font_size: "17sp"
+			font_name: "Roboto"
+			color: from_hex("#101216")
+			pos_hint: {"center_x":.82, "center_y":.93}
+			bold: True
+
+		MDFloatLayout:
+			size_hint: .8, .13
+			pos_hint: {"center_x":.5, "center_y":.80}
+
+			MDLabel:
+				text: "Username"
+				font_size: "14sp"
+				pos_hint: {"center_x":.5, "center_y":.80}
+				background_color: 0,0,0,0
+				bold: True
+
+			TextInput:
+				id: username_entry
+				size_hint: 1, .75
+				font_name: "Roboto"
+				pos_hint: {"center_x":.48, "center_y":.30}
+				background_color: 0,0,0,0
+				multiline : False
+				write_tab: False
+
+
+			MDIcon:
+				icon: "account"
+				font_size: "30sp"
+				pos_hint: {"center_x":1.4, "center_y":.60}
+
+
+
+
+		MDFloatLayout:
+			size_hint: .8, .13
+			pos_hint: {"center_x":.5, "center_y":.67}
+
+			MDLabel:
+				text: "Password"
+				font_size: "14sp"
+				pos_hint: {"center_x":.5, "center_y":.95}
+				background_color: 0,0,0,0
+				bold: True
+
+			TextInput:
+				id: password_entry
+				size_hint: 1, .75
+				font_name: "Roboto"
+				pos_hint: {"center_x":.48, "center_y":.35}
+				background_color: 0,0,0,0
+				multiline : False
+				write_tab: False
+
+
+			MDIcon:
+				icon: "key"
+				font_size: "30sp"
+				pos_hint: {"center_x":1.4, "center_y":.5}
+
+		MDFloatLayout:
+		    size_hint: .8, .13
+		    pos_hint: {"center_x":.5, "center_y":.57}
+
+		    MDLabel:
+		        text: "First name"
+		        font_size: "14sp"
+		        pos_hint: {"center_x":.5, "center_y":.95}
+		        background_color: 0,0,0,
+		        bold: True
+		    TextInput:
+		        id: first_entry
+		        size_hint: 1, .75
+		        font_name: "Roboto"
+		        pos_hint: {"center_x":.48, "center_y":.35}
+		        background_color: 0,0,0,0
+		        multiline : False
+		        write_tab : False
+
+	    MDFloatLayout:
+		    size_hint: .8, .13
+		    pos_hint: {"center_x":.5, "center_y":.47}
+
+		    MDLabel:
+		        text: "Last name"
+		        font_size: "14sp"
+		        pos_hint: {"center_x":.5, "center_y":.95}
+		        background_color: 0,0,0,
+		        bold: True
+		    TextInput:
+		        id: last_entry
+		        size_hint: 1, .75
+		        font_name: "Roboto"
+		        pos_hint: {"center_x":.48, "center_y":.35}
+		        background_color: 0,0,0,0
+		        multiline : False
+		        write_tab : False
+
+		MDFloatLayout:
+		    size_hint: .8, .13
+		    pos_hint: {"center_x":.5, "center_y":.37}
+
+		    MDLabel:
+		        text: "Bio"
+		        font_size: "14sp"
+		        pos_hint: {"center_x":.5, "center_y":.95}
+		        background_color: 0,0,0,
+		        bold: True
+		    TextInput:
+		        id: birth_entry
+		        size_hint: 1, .75
+		        font_name: "Roboto"
+		        pos_hint: {"center_x":.48, "center_y":.35}
+		        background_color: 0,0,0,0
+		        multiline : False
+		        write_tab : False
+		    MDIcon:
+		        icon: "cake-variant"
+		        font_size: "30sp"
+				pos_hint: {"center_x":1.4, "center_y":.60}
+
+		MDFloatLayout:
+		    size_hint: .8, .13
+		    pos_hint: {"center_x":.5, "center_y":.27}
+
+		    MDLabel:
+		        text: "Profile Picture"
+		        font_size: "14sp"
+		        pos_hint: {"center_x":.5, "center_y":.95}
+		        background_color: 0,0,0,
+		        bold: True
+		    TextInput:
+		        id: user_pic
+		        size_hint: 1, .75
+		        font_name: "Roboto"
+		        pos_hint: {"center_x":.48, "center_y":.35}
+		        background_color: 0,0,0,0
+		        multiline : False
+		        write_tab : False
+		    MDIcon:
+		        icon: "camera-account"
+		        font_size: "30sp"
+				pos_hint: {"center_x":1.4, "center_y":.60}
+
+
+		Button:
+			text: "Register"
+			size_hint:.4,.07
+			pos_hint: {"center_x":.5, "center_y":.15}
+			background_color: 0,0,0,0
+			font_name: "Roboto"
+			font_size: "18sp"
+			bold: True
+			on_press: app.sign_up()
+			canvas.before:
+				Color:
+					rgb: 226/255, 0, 48/255,1
+				RoundedRectangle:
+					size: self.size
+					pos: self.pos
+					radius: [25]
+
+        Button:
+			text: "Return"
+			size_hint:.4,.07
+			pos_hint: {"center_x":.5, "center_y":.06}
+			background_color: 0,0,0,0
+			font_name: "Roboto"
+			font_size: "18sp"
+			bold: True
+			on_press: app.to_login_page()
+			canvas.before:
+				Color:
+					rgb: 226/255, 0, 48/255,1
+				RoundedRectangle:
+					size: self.size
+					pos: self.pos
+					radius: [25]
